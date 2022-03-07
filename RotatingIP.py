@@ -9,7 +9,7 @@ def get_free_proxies():
     soup = bs(requests.get(url).content, 'html.parser')
     # to store proxies
     proxies = []
-    for row in soup.find("table", attrs={"id": "proxylisttable"}).find_all("tr")[1:]:
+    for row in soup.find("table", attrs={"class": "table-striped"}).find_all("tr")[1:]:
         tds = row.find_all("td")
         try:
             ip = tds[0].text.strip()
